@@ -21,59 +21,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { useTheme, Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch, } from 'react-native-paper';
 
-const FacebookNoti = (props) => {
-    const [data, setData] = React.useState({
-        username: '',
-        password: '',
-        confirm_password: '',
-        check_textInputChange: false,
-        secureTextEntry: true,
-        confirm_secureTextEntry: true,
-    });
-
-    const textInputChange = (val) => {
-        if (val.length !== 0) {
-            setData({
-                ...data,
-                username: val,
-                check_textInputChange: true
-            });
-        } else {
-            setData({
-                ...data,
-                username: val,
-                check_textInputChange: false
-            });
-        }
-    }
-
-    const handlePasswordChange = (val) => {
-        setData({
-            ...data,
-            password: val
-        });
-    }
-
-    const handleConfirmPasswordChange = (val) => {
-        setData({
-            ...data,
-            confirm_password: val
-        });
-    }
-
-    const updateSecureTextEntry = () => {
-        setData({
-            ...data,
-            secureTextEntry: !data.secureTextEntry
-        });
-    }
-
-    const updateConfirmSecureTextEntry = () => {
-        setData({
-            ...data,
-            confirm_secureTextEntry: !data.confirm_secureTextEntry
-        });
-    }
+const TransferOBU = (props) => {
+  
 
     const [modalVisible, setModalVisible] = useState(false);
     return (
@@ -140,13 +89,14 @@ const FacebookNoti = (props) => {
                                 />
                             </View>
                         </View>
-                        <View>
+                    </View>
+                </View>
+                        <View style={{position:'absolute',bottom:0,right:0}}>
                             <Text style={styles.action} onPress={() => {
                                 setModalVisible(true)
                             }}>Transfer</Text>
                         </View>
-                    </View>
-                </View>
+            </ScrollView>
                 <View style={styles.centeredView}>
                     <Modal
                         animationType="fade"
@@ -171,7 +121,7 @@ const FacebookNoti = (props) => {
 
                                 <View style={styles.btn}>
                                     <TouchableHighlight
-                                        style={{ ...styles.openButton, backgroundColor: "#2196F3", flex: 1 }}
+                                        style={{ ...styles.openButton, backgroundColor: "#858585", flex: 1 }}
                                         onPress={() => {
                                             setModalVisible(!modalVisible);
                                         }}
@@ -189,12 +139,11 @@ const FacebookNoti = (props) => {
                         </View>
                     </Modal>
                 </View>
-            </ScrollView>
         </>
     );
 };
 
-export default FacebookNoti;
+export default TransferOBU;
 
 const styles = StyleSheet.create({
     container: {
@@ -233,23 +182,23 @@ const styles = StyleSheet.create({
     textInput: {
     },
     action: {
-        width: ('30%'),
+        width: ('100%'),
         // flex: 1,
         // position: 'absolute',
-        bottom: 50,
+        bottom: 20,
         alignSelf: 'flex-end',
-        top: '15%',
+        // top: '0%',
         right: 10,
-        color: 'white',
-        justifyContent: 'center',
-        alignItems: 'center',
+        // justifyContent: 'center',
+        // alignItems: 'center',
         fontSize: 20,
-        flexDirection: 'column',
+        // flexDirection: 'column',
         paddingBottom: 8,
         paddingTop: 8,
         paddingLeft: 20,
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
+        paddingRight: 20,
+        // justifyContent: 'flex-start',
+        // alignItems: 'flex-start',
         borderTopLeftRadius: 50,
         borderBottomRightRadius: 50,
         borderBottomLeftRadius: 50,

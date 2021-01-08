@@ -21,61 +21,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 
-const Home = (props) => {
-    const [data, setData] = React.useState({
-        username: '',
-        password: '',
-        confirm_password: '',
-        check_textInputChange: false,
-        secureTextEntry: true,
-        confirm_secureTextEntry: true,
-    });
-
-    const textInputChange = (val) => {
-        if (val.length !== 0) {
-            setData({
-                ...data,
-                username: val,
-                check_textInputChange: true
-            });
-        } else {
-            setData({
-                ...data,
-                username: val,
-                check_textInputChange: false
-            });
-        }
-    }
-
-    const handlePasswordChange = (val) => {
-        setData({
-            ...data,
-            password: val
-        });
-    }
-
-    const handleConfirmPasswordChange = (val) => {
-        setData({
-            ...data,
-            confirm_password: val
-        });
-    }
-
-    const updateSecureTextEntry = () => {
-        setData({
-            ...data,
-            secureTextEntry: !data.secureTextEntry
-        });
-    }
-
-    const updateConfirmSecureTextEntry = () => {
-        setData({
-            ...data,
-            confirm_secureTextEntry: !data.confirm_secureTextEntry
-        });
-    }
-
-
+const LoginScreen = (props) => {
+  
     return (
         <>
 
@@ -116,7 +63,7 @@ const Home = (props) => {
                     </View>
                 </View>
                 <View>
-                    <Text style={styles.actio} onPress={() => props.navigation.navigate('FacebookFeed')}>Login</Text>
+                    <Text style={styles.actio} onPress={() => props.navigation.navigate('FABScreen')}>Login</Text>
                 </View>
             </View>
 
@@ -124,12 +71,11 @@ const Home = (props) => {
     );
 };
 
-export default Home;
+export default LoginScreen;
 
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
-        // height: '100%'
     },
     logincontainer: {
         backgroundColor: '#fff',
@@ -177,8 +123,6 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     }, actio: {
         width: ('30%'),
-        // flex: 1,
-        // position: 'absolute',
         bottom: 50,
         alignSelf: 'flex-end',
         top: '40%',

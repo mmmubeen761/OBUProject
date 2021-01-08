@@ -22,59 +22,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 
 
 const Driver = (props) => {
-    const [data, setData] = React.useState({
-        username: '',
-        password: '',
-        confirm_password: '',
-        check_textInputChange: false,
-        secureTextEntry: true,
-        confirm_secureTextEntry: true,
-    });
-
-    const textInputChange = (val) => {
-        if (val.length !== 0) {
-            setData({
-                ...data,
-                username: val,
-                check_textInputChange: true
-            });
-        } else {
-            setData({
-                ...data,
-                username: val,
-                check_textInputChange: false
-            });
-        }
-    }
-
-    const handlePasswordChange = (val) => {
-        setData({
-            ...data,
-            password: val
-        });
-    }
-
-    const handleConfirmPasswordChange = (val) => {
-        setData({
-            ...data,
-            confirm_password: val
-        });
-    }
-
-    const updateSecureTextEntry = () => {
-        setData({
-            ...data,
-            secureTextEntry: !data.secureTextEntry
-        });
-    }
-
-    const updateConfirmSecureTextEntry = () => {
-        setData({
-            ...data,
-            confirm_secureTextEntry: !data.confirm_secureTextEntry
-        });
-    }
-
+  
 
     return (
         <>
@@ -84,7 +32,7 @@ const Driver = (props) => {
                     <Text style={{ paddingLeft: 20, fontSize: 16, fontFamily: "roboto",  }}>Login as</Text>
                     <View style={{ flexDirection: "row" }}>
                         <View style={{ width: '50%' }}>
-                            <Text style={{ paddingTop: 20, alignSelf: 'center', fontSize: 20, fontWeight: 'bold', fontFamily: "roboto"}} onPress={() => props.navigation.navigate('FacebookSignin')}>Fleet Manager</Text>
+                            <Text style={{ paddingTop: 20, alignSelf: 'center', fontSize: 20, fontWeight: 'bold', fontFamily: "roboto"}} onPress={() => props.navigation.navigate('LoginScreen')}>Fleet Manager</Text>
                         </View>
                         <View style={{ width: '50%' }}>
                             <Text style={{ paddingTop: 20, alignSelf: 'center', fontSize: 20, fontWeight: 'bold', fontFamily: "roboto", borderBottomWidth: 2, borderBottomColor: 'red',  }}>Driver</Text>
@@ -105,7 +53,7 @@ const Driver = (props) => {
                     </View>
                 </View>
                 <View>
-                    <Text style={styles.actio} onPress={() => props.navigation.navigate('FacebookFeed')}>Login</Text>
+                    <Text style={styles.actio} onPress={() => props.navigation.navigate('FABScreen')}>Login</Text>
                 </View>
             </View>
 
